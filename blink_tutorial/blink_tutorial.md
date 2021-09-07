@@ -34,7 +34,9 @@ What you will need for this tutorial:
     4. Search for ESP8266 and press install button for the “ESP8266 by ESP8266 Community“, be sure to check to see that “ESP8266 by ESP8266 Community” is marked as installed.
 2. Wiring your test board
 Connect an LED to your ESP8266, as shown in the following schematic diagram. The LED should be connected to GPIO 2 (D4).
+
 ![Blink Circuit Diagram](/blink_tutorial/images/blink_circuitdiagram.png)
 
 Once wired it should look something like:
+
 ![Blink Wiring Photo](/blink_tutorial/images/blink_wiring_cropped.png)
