@@ -20,5 +20,21 @@ What you will need for this tutorial:
 1. Setup a working development environment
   1. Install arduino IDE
   
-    On your laptop/desktop install arduini ide from the arduino.cc software page at
-https://www.arduino.cc/en/software
+    On your laptop/desktop install arduini ide from the arduino.cc software URL https://www.arduino.cc/en/software
+    Once installed run the app.  It should look like:
+    
+  2. Install esp board support into your IDE:
+    1. In your Arduino IDE, go to Arduino> Preferences for MACOS and File>Preferences for Windows.
+    2. Enter http://arduino.esp8266.com/stable/package_esp8266com_index.json into the “Additional Boards Manager URLs” field as shown in the figure below. Then, click the “OK” button
+
+      Note: if you are using an ESP32 board you can install both URLS with a comma as follows:
+      > https://dl.espressif.com/dl/package_esp32_index.json,    
+      > http://arduino.esp8266.com/stable/package_esp8266com_index.json 
+    3. Open the Boards Manager. Go to Tools > Board > Boards Manager
+    4. Search for ESP8266 and press install button for the “ESP8266 by ESP8266 Community“, be sure to check to see that “ESP8266 by ESP8266 Community” is marked as installed.
+2. Wiring your test board
+Connect an LED to your ESP8266, as shown in the following schematic diagram. The LED should be connected to GPIO 2 (D4).
+![Blink Circuit Diagram](/images/blink_circuitdiagram.png)
+Once wired it should look something like:
+blink_circuitdiagram.png
+![Blink Wiring Photo](/images/blink_wiring_cropped.png)
