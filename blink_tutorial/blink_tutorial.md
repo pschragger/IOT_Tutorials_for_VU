@@ -65,7 +65,7 @@ Once wired it should look something like:
 
    4. Once it is working, change the delays and reflash (steps 1-3)
    
-   Please note that depending on the board the reverse of what is said in the example will happen.
+   Please note that depending on the board the reverse of what is said in the example will happen to the built in LED and work correctly for the wired in LED.
 
 
    5. To get your wired in led working you will need to change the setup to use the correct output pin,  the questing is whether to use the output pin number, the GPIO number or the D# .
@@ -77,7 +77,7 @@ So is it 4, or 2 to use the D4/GPIO2 as output to the LED.  BTW,  you may need t
 
 >   // initialize digital pin LED_BUILTIN as an output.
 >   // replace with the pin number
->   pinMode(LED_BUILTIN, 2 );
+>   pinMode(2, OUTPUT); // note the builtin and D4 are both 2
 
    NOTE: There maybe some problems with loading because of differnces in your OS environents.
 
