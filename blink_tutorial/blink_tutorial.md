@@ -40,6 +40,7 @@ Connect an LED to your ESP8266, as shown in the following schematic diagram. The
 Once wired it should look something like:
 
 ![Blink Wiring Photo](/blink_tutorial/images/blink_wiring_cropped.png)
+
 3. Connect Laptop/desktop to microcontroller using a USB to mini USB
 4. Load the unboard blink software under test from File->Examples->01. Basics -> Blink
 
@@ -62,10 +63,15 @@ Once wired it should look something like:
    3. upload and flash
    The onboard led with flash quickly, then it should cycle through the software
 
-   4. Try change the delays.
+   4. Once it is working, change the delays and reflash (steps 1-3)
+   
    Please note that depending on the board the reverse of what is said in the example will happen.
 
 
+   5. To get your wired in led working you will need to change the setup to use the correct output pin,  the questing is whether to use the output pin number, the GPIO number or the D# .
+For referece check:
+https://github.com/thehookup/Wireless_MQTT_Doorbell/blob/master/GPIO_Limitations_ESP8266_NodeMCU.jpg
+So is it 4, or 2 to use the D4/GPIO2 as output to the LED.  BTW,  you may need to reverse the LED since it only will light when there is a postive voltage applied.
 
    NOTE: There maybe some problems with loading because of differnces in your OS environents.
 
