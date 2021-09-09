@@ -71,7 +71,12 @@ Once wired it should look something like:
    5. To get your wired in led working you will need to change the setup to use the correct output pin,  the questing is whether to use the output pin number, the GPIO number or the D# .
 For referece check:
 https://github.com/thehookup/Wireless_MQTT_Doorbell/blob/master/GPIO_Limitations_ESP8266_NodeMCU.jpg
+
 So is it 4, or 2 to use the D4/GPIO2 as output to the LED.  BTW,  you may need to reverse the LED since it only will light when there is a postive voltage applied.
+
+>   // initialize digital pin LED_BUILTIN as an output.
+>   // replace with the pin number
+>   pinMode(LED_BUILTIN, 2 );
 
    NOTE: There maybe some problems with loading because of differnces in your OS environents.
 
