@@ -26,7 +26,8 @@ What you will need for this tutorial:
    2. Note the fingerprint has expired if you want to retrieve a new one then follow: https://maakbaas.com/esp8266-iot-framework/logs/https-requests/  Otherwise replace the line: client->setFingerprint(fingerprint); as follows to disable security
      
    > //client->setFingerprint(fingerprint);
-   >  client->setInsecure();
+  
+  >  client->setInsecure();
 
 
 3. Send API request to weathermap API
