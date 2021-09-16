@@ -1,0 +1,27 @@
+# WIFI and WeatherMap API Tutorial #
+Microcontroller testing WIFI with Weathermap API 
+## Purpose ##
+This tutorial outlines how to :
+1. Register and obtain weathermap api keys
+1. Setup microcontroller to connect to local wifi
+1. Send API request to weathermap API
+1. Parse response
+1. Display returned results
+## Setup ##
+What you will need for this tutorial:
+1. A laptop or a rpi working as a desktop  with connection to the internet (WIFI or ethernet)
+1. 1 esp8266 nodemcu or other arduino equivalent
+1. 1 USB to usb mini connector for connecting to arduino 
+
+## Tutorial Steps
+1. Register and obtain weathermap api keys
+
+
+2. Setup microcontroller to connect to local wifi
+
+
+3. Send API request to weathermap API
+
+4. Parse response
+
+5. Display returned results
