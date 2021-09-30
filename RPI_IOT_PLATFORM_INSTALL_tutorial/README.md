@@ -90,6 +90,7 @@ When prompted, enter a password (and remember what it is), select n for superuse
   4. Check the log to see that the service started up tcp services
   I used:
 > cat /var/log/postgresql/postgresql-13-main.log
+
 Log contains
 >  2021-09-30 15:02:34.875 EDT [2412] LOG:  starting PostgreSQL 13.3 (Debian 13.3-1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
 > 2021-09-30 15:02:34.876 EDT [2412] LOG:  listening on IPv4 address "0.0.0.0", port 5432
