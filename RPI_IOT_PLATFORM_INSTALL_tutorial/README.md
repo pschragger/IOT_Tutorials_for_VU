@@ -42,17 +42,21 @@ When prompted, enter a password (and remember what it is), select n for superuse
 
 3. Now connect to Postgres using the shell and create a test database:
 > psql
+
 >  > create database test;
 
 4. Exit from the psql shell and again from the Postgres user by pressing Ctrl+D twice, and you'll be logged in as the pi user again. Since you created a Postgres user called pi, you can access the Postgres shell from here with no credentials:
 
 > sudo su postgres
+
 > psql test
+
 > create table people (name text, company text);
 
 5. Now add data
 
 > insert into people values ('Ben Nuttall', 'Raspberry Pi Foundation');
+
 > insert into people values ('Rikki Endsley', 'Red Hat');
 
 6. test that the data persists:
@@ -86,17 +90,26 @@ When prompted, enter a password (and remember what it is), select n for superuse
   3. restart the service by exiting back to the root console line
      by hitting ^D twice.
      Then run
+
 > dietpi-services restart postgresql
-  4. Check the log to see that the service started up tcp services
+
+4. Check the log to see that the service started up tcp services
   I used:
+
 > cat /var/log/postgresql/postgresql-13-main.log
 
 Log contains
+
 >  2021-09-30 15:02:34.875 EDT [2412] LOG:  starting PostgreSQL 13.3 (Debian 13.3-1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+
 > 2021-09-30 15:02:34.876 EDT [2412] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+
 > 2021-09-30 15:02:34.876 EDT [2412] LOG:  listening on IPv6 address "::", port 5432
+
 > 2021-09-30 15:02:34.884 EDT [2412] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
+
 > 2021-09-30 15:02:34.911 EDT [2415] LOG:  database system was shut down at 2021-09-30 15:02:24 EDT
+
 > 2021-09-30 15:02:34.949 EDT [2412] LOG:  database system is ready to accept connections
   
 
