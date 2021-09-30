@@ -1,28 +1,77 @@
 # Setting up an Access Point on Raspberry PI #
 In this tutorial we will set up a Raspberry Pi as an IOT Gateway
 ## Purpose ##
-An IOT accesspoint allows IOT devices to connect to the local wireless network. the gateway has the additonal capablity of routing the IOT data to the internet.
+An IOT accesspoint allows IOT devices to connect to RPI base Wireless network. The gateway has the additonal capablity of routing the IOT data to the internet on a second network (wired or wireless)
 So the purpose of this tutorial is to set a Raspberry Pi as the access point and gateway.
+
+Do the setup in two phases:
+
+1) boot RPI and login via wifi or ethernet
+Headless SSH settings from : https://dietpi.com/phpbb/viewtopic.php?t=5370
+
+2) Setup the Pi as a wifi extender or ethernet hotspot
+https://pimylifeup.com/raspberry-pi-wifi-extender/
+or setup the PI as a wifi hotspot routing to ethernet
+
+During this tutorial we will:
 1. Install a version of a Linux operating system on the PI
 2. Setup the wireless accesspoint to allow both the IOT devices and our laptop to connect to the PI
-3. Setup the ethernet and router to all the PI act as gateway
+3. Setup  to PI act as gateway with either two wireless networks or a wireless network and an ethernet
 4. Test that you can connect to the weatherapi as setup in the wifi_tutorial both with you laptop and your arduino
-## Setup ##
+
+## Setu p ##
 What you will need for this tutorial:
 1. A laptop or desktop to act as your development platform
 2. A Raspberry PI ( 3 B+ or 4 )
 3. A Class 10 microSD 8gb or better (max 32gb) https://www.mymemory.co.uk/blog/the-best-memory-cards-for-raspberry-pi/
+
+For ethernet connection:
 4. Ethernet cable
 5. Ethernet router
 
+For wifi connection:
+4. wifi dongle
+5. Wifi router 
+
 ## Tutorial Steps ##
-### 1. Setup your working environment on your laptop ###
+### 1. Know your network
+  To setup dietpi for the first time you will need access to the internet.
+  This can either be done via a WIFI setup or an ethernet setup.
+  Before joining a network with your pi test your connection with your laptop and find.
+  1. Router ip address
+  2. Laptop ip address
+     
+#### WIFI setup
+    1. Connect Laptop to wireless network ( ideally using your own wifi router or my lab router or some other wep or wep2 or wpa  wifi with known ssid name and password.) Note this network connection is temporary until we can get the pi initialized and configured.  Later we will provide an ssid on the pi so it act as router and you will assign the pi a known ip address as the router.
+       1. For the inclass lab I have setup a network
+       	  SSID: DR-S-IOT-G
+	  Password: iotisfun		      
+       2. Connect your laptop to the network
+       3. Use you laptop wifi network info to obtain your wifi info:
+       	  For SSID: DR-S-IOT-G
+	  Router: 192.168.10.1
+	  Laptop: 192.168.10.2
+       4. Choose a fixed ip address Laptop ip + 0.0.0.100
+          So I will assign my pi to 192.168.10.102   ( this will assure that we do not steal some elses assigned number. Note the highest you can go is 192.168.10.254   -- So you may have trouble on a public wifi finding an available settings so do this first setup in a known environment. )
+#### Ethernet setup
+    1. Connect Laptop to an ethernet router ( ideally using your own ethernet router or my lab router.) Note this network connection is temporary until we can get the pi initialized and configured.  Later we will provide an ssid on the pi so it act as router and you will assign the pi a known ip address as the router.
+       1. For the in class lab router it shares the managed ip address space with the wifi network
+       2. Connect your laptop to the network
+       3. Use you laptop wifi network info to obtain your wifi info:
+	  Router: 192.168.10.1
+	  Laptop: 192.168.10.3
+       4. Choose a fixed ip address Laptop ip + 0.0.0.100
+          So I will assign my pi to 192.168.10.103   ( this will assure that we do not steal some elses assigned number. Note the highest you can go is 192.168.10.254. You may have trouble on a public wifi finding an available settings so do this first setup in a known environment. )
+
+
+        
+### 2. Setup your working environment on your laptop ###
     1. Prepare your device to with an archiver extractor - on windows I used BreeZip http:www.breezip.com but others are available from https://www.7-zip.org . On MacOS V11 it extracted using tools already installed but an unarchiver is available at  https://theunarchiver.com for your mac if extraction is not working.
    
      2. Prepare you laptop with a sd card writer such as: balenaEtcher https://www.balena.io/etcher/
 
 
-### 2. Download and configure  DietPI on your laptop
+### 3. Download and configure  DietPI on your laptop
 
 1. Download and extract the DietPi disk image
    1. Go to https://dietpi.com/#download and select the RaspberyPI Images
@@ -32,14 +81,16 @@ What you will need for this tutorial:
       2. So I am choosing to use:
       ARMv8 64-bit image:Download - As of Sep 19, 2021 that link is  https://dietpi.com/downloads/images/DietPi_RPi-ARMv8-Bullseye.7z
    3. Extract the DietPi_RPi-ARMv8-Bullseye.7z -
-   3. Write the DietPi image to your SDcard using balenaetcher or other flashing software
+   4. Write the DietPi image to your SDcard using balenaetcher or other flashing software
       1. open balenaetcher
       2. select the dietpi image
+      3. Insert sd card ( do not format it)
       3. Select the targeted card ( that was inserted into your laptop)
       4. Press flash ( you may have to put in your credentials. I also had to  try a second time to make it work)
       5. wait until the flash finished and verifies the copy
       6. close balenaetcher
-   4. Edit the extracted DietPi_RPi-ARMv8-Bullseye to make a Headless install of Dietpi so installation needs: No Monitor, No LAN,  No router login see 
+      
+   5. Edit the extracted DietPi_RPi-ARMv8-Bullseye to make a Headless install of Dietpi so installation needs: No Monitor, No LAN,  No router login see 
       Pre Configure WiFiYouTube video #3: https://www.youtube.com/watch?v=vlMpn9u0Y4o for step by step instructions or https://dietpi.com/phpbb/viewtopic.php?f=8&t=273 for text version of instructions
       But follow along here for my take on this setup:
          1. Find the sd card on your machine:
@@ -48,7 +99,7 @@ What you will need for this tutorial:
 	 2. Open /boot/dietpi.txt or {Drive ID like D}:dietpi.txt
 	     1. WINDOWS will probably open in notepad
 	     2. MACOS will probably open in textedit
-         3. change the following configurations:
+         3. change the following configurations: [example file content](http:src/dietpi-wifi-boot.txt)
 	    1. WIFI intialization:
 	       AUTO_SETUP_NET_WIFI_ENABLED=1
 	       AUTO_SETUP_NET_HOSTNAME=DietPi_IOT_{YOURINITIALS} so mine is
