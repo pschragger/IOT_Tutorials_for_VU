@@ -74,7 +74,10 @@ example
     Default password is setup in your dietpi.txt if not changed then it will be: dietpi
 
 ### 6. Once you are logged into the pi you can continue with other install tutorials
-
-1. Accept the license
-2. The pi will begin to update its software, this may take a while since others are also updating their code or using the network.
-3. Continue with other installs such as: [IOT Platform Install](../RPI_IOT_PLATFORM_INSTALL_tutorial)
+ 
+1. Accept the license -- if the next step takes too long then you may have to erase the sd card and begin again.
+1. Turn off hot plug detection
+1. Opt out of survey
+1. Leave global password and user passwords alone ( Only do this if your are going to make this secure install)
+1. The pi will begin to update its software, this may take a while since others theare also updating their code or using the network.
+1. Continue with other installs such as: [IOT Platform Install](../RPI_IOT_PLATFORM_INSTALL_tutorial)
