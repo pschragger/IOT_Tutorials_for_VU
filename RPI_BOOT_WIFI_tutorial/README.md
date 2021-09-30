@@ -16,7 +16,8 @@ What you will need for this tutorial:
 ## Tutorial Steps ##
 ### 1. Setup your working environment on your laptop ###
 1. Prepare your device to with an archiver extractor - on windows I used BreeZip http:www.breezip.com but others are available from https://www.7-zip.org . On MacOS V11 it extracted using tools already installed but an unarchiver is available at  https://theunarchiver.com for your mac if extraction is not working.
-2. Prepare you laptop with a sd card writer such as: balenaEtcher https://www.balena.io/etcher/
+1. Prepare you laptop with a sd card writer such as: balenaEtcher https://www.balena.io/etcher/
+
 
 ### 2. Download and configure  DietPI on your laptop
 
