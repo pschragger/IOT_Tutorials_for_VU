@@ -22,7 +22,7 @@ AUTO_SETUP_TIMEZONE=America/New_York
 # Enable Ethernet or WiFi adapter: 1=enable | 0=disable
 # - If both Ethernet and WiFi are enabled, WiFi will take priority and Ethernet will be disabled.
 # - If using WiFi, please edit dietpi-wifi.txt to pre-enter credentials.
-AUTO_SETUP_NET_ETHERNET_ENABLED=1
+AUTO_SETUP_NET_ETHERNET_ENABLED=0
 AUTO_SETUP_NET_WIFI_ENABLED=1
 
 # Force ethernet speeds: 0=automatic speed | 10 = 10Mbit | 100 = 100Mbit etc
@@ -30,14 +30,14 @@ AUTO_SETUP_NET_WIFI_ENABLED=1
 AUTO_SETUP_NET_ETH_FORCE_SPEED=0
 
 # Enter your Static Network details below, if applicable.
-AUTO_SETUP_NET_USESTATIC=0
-AUTO_SETUP_NET_STATIC_IP=192.168.0.100
+AUTO_SETUP_NET_USESTATIC=1
+AUTO_SETUP_NET_STATIC_IP=192.168.10.{HOSTNUMBER}
 AUTO_SETUP_NET_STATIC_MASK=255.255.255.0
-AUTO_SETUP_NET_STATIC_GATEWAY=192.168.0.1
+AUTO_SETUP_NET_STATIC_GATEWAY=192.168.10.1
 AUTO_SETUP_NET_STATIC_DNS=8.8.8.8
 
 # Hostname
-AUTO_SETUP_NET_HOSTNAME=DietPi_PS
+AUTO_SETUP_NET_HOSTNAME=DietPi_{YOUR_INITIAL_HERE}
 
 ##### Misc Options #####
 # Swapfile size to generate: 0=disable | 1=auto (2GB-RAM = size) | 2+=manual (MB)
@@ -105,7 +105,7 @@ AUTO_SETUP_GLOBAL_PASSWORD=dietpi
 # - DietPi will automatically install all pre-reqs (e.g. ALSA/X11 for desktops etc)
 # - E.g. the following (without the leading "#") will install the LXDE desktop automatically on first boot:
 #AUTO_SETUP_INSTALL_SOFTWARE_ID=23
-AUTO_SETUP_INSTALL_SOFTWARE_ID=44
+#AUTO_SETUP_INSTALL_SOFTWARE_ID=44
 
 #------------------------------------------------------------------------------------------------------
 # D I E T - P I
@@ -177,7 +177,7 @@ CONFIG_SERIAL_CONSOLE_ENABLE=0
 # Soundcard
 CONFIG_SOUNDCARD=none
 
-# LCD Panel addon
+# LCD Panel add-on
 # - Do not modify, you must use dietpi-config to configure/set options
 CONFIG_LCDPANEL=none
 
@@ -222,7 +222,7 @@ SOFTWARE_OWNCLOUD_DATADIR=/mnt/dietpi_userdata/owncloud_data
 SOFTWARE_NEXTCLOUD_DATADIR=/mnt/dietpi_userdata/nextcloud_data
 
 # WiFi Hotspot
-SOFTWARE_WIFI_HOTSPOT_SSID=DietPi-HotSpot-PS
+SOFTWARE_WIFI_HOTSPOT_SSID=DietPi-HotSpot
 # - Key requires a minimum of 8 characters
 SOFTWARE_WIFI_HOTSPOT_KEY=dietpihotspot
 SOFTWARE_WIFI_HOTSPOT_CHANNEL=3
