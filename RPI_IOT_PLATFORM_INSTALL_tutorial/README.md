@@ -14,9 +14,13 @@
    1. Move curser to Install and tab to ok 
    1. Once you hit enter it should indicate:
 > DietPi is now ready to install your software choices:                        
+
 >  - Node-RED: tool for wiring devices, APIs and online services               
+
 >  - Mosquitto: MQTT messaging broker                                   
+
 >  - PostgreSQL: Persistent advanced object-relational database server  
+
    1. tab to OK and start the install
    1. it will take a while to install ( I measured 11 minutes at home on the wifi)
    1. It should show the all the services restarted
@@ -71,7 +75,9 @@ When prompted, enter a password (and remember what it is), select n for superuse
   2. Need to run plsql on your pi an alter the listen_address settings using:
 
 >  sudo su postgres
+
 >  psql test
+
 >  ALTER SYSTEM SET LISTEN_ADDRESSES = '*';
 
   This will allow your postgres to recieve ip traffic.  Careful the system is no
@@ -84,6 +90,7 @@ When prompted, enter a password (and remember what it is), select n for superuse
   4. Check the log to see that the service started up tcp services
   I used:
 > cat /var/log/postgresql/postgresql-13-main.log
+Log contains
 >  2021-09-30 15:02:34.875 EDT [2412] LOG:  starting PostgreSQL 13.3 (Debian 13.3-1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
 > 2021-09-30 15:02:34.876 EDT [2412] LOG:  listening on IPv4 address "0.0.0.0", port 5432
 > 2021-09-30 15:02:34.876 EDT [2412] LOG:  listening on IPv6 address "::", port 5432
