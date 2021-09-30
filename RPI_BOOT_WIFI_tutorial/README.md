@@ -42,7 +42,7 @@ find your ip address: it will depend on your laptop usually found in the network
 then set your Raspberry PI to use a fixed ipaddress using the N from your laptop address and adding 100.
 As an example: my laptop is using 192.168.10.3 , so I will configure my PI to 192.168.103
 	   Save this ip address to update the config files
-2. Copy the [dietpi.txt](./src/wifi_boot/dietpi.txt) and [dietpi-wifi.txt](./src/wifi_boot/dietpi-wifi.txt) from the [src/wifi_boot](./src/wifi_boot) directory of this repo
+2. Copy the [dietpi.txt](./src/wifi_boot/dietpi.txt) and [dietpi-wifi.txt](./src/wifi_boot/dietpi-wifi.txt) from the wifi_boot directory of this tutorial rep. 
 3. open the new dietpi.txt from my repo for editing.  update the line
 
 > AUTO_SETUP_NET_STATIC_IP=192.168.10.{HOSTNUMBER}
@@ -57,10 +57,9 @@ to
 example
 >AUTO_SETUP_NET_HOSTNAME=DietPi_PAS
 
-1. Find the sd card on your machine:
-1. MACOS - remove card and put it back in to have it mount and use finder to open files in an editor
-2. WINDOWS - Use File explorer to find mounted sd card and boot
-2. Copy the dietpi.txt and dietpi-wifi.txt that you edited to the sd card (Replacing the old versions)  
+1. Find the sd card on your machine in the file explorer on windows or the finder on macos
+
+2. Copy the dietpi.txt and dietpi-wifi.txt that you edited to the sd card (Replacing the old versions)  Please note this will only work with a fresh install of the dietpi image.
        	    
 ### 3. Eject the SD card from your laptop
 
@@ -74,5 +73,8 @@ example
     using the form:  ssh root@{PI_IPADDR}
     Default password is setup in your dietpi.txt if not changed then it will be: dietpi
 
-### 6. Once you are logged into the pi you can continue with other
+### 6. Once you are logged into the pi you can continue with other install tutorials
 
+1. Accept the license
+2. The pi will begin to update its software, this may take a while since others are also updating their code or using the network.
+3. Continue with other installs such as: [IOT Platform Install](../RPI_IOT_PLATFORM_INSTALL_tutorial)
