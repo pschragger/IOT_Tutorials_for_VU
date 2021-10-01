@@ -123,19 +123,28 @@ Info on using node red on the pi is found on the nodered.org website: https://no
 You can ignore the installation part since it was done via the dietpi-software interface
 
 1.   Connect to node-red to see that it is running using it RPI Static IPaddr
-   http://{YOUR_RPI_IPADDRESS}:1880
+
+http://{YOUR_RPI_IPADDRESS}:1880
+
 1. Install node-red-contrib-re-postgres  in your ssh command line using:
+
 npm install node-red-contrib-re-postgres
+
 2. Restart node-red with the command
+
 > dietpi-services restart node-red
+
 General services info found in https://github.com/MichaIng/DietPi/issues/1114
+
 3. Go to Manage Pallet and install  node-red-contrib-postgresql
 4. Install should note that it is working
 5. pull a postgres node into a flow
 6. click on the node and configure a database instance
 7. Be sure to label it and set Recieve query output? and Return message on error on by enabling checkboxes and save
 8. Pull in a trigger and template node and debug node and wire
-   trigger->template->Postgres->debug
+
+trigger->template->Postgres->debug
+
 9. I put a flow in the elearning site to try out.
 
 
