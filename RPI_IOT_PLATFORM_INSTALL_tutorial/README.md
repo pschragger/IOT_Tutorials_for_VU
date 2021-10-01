@@ -37,10 +37,13 @@ Please note we already installed postgres so start at configuing it
 > sudo su postgres
 
 2. Create a user with :
+
 > createuser pi -P --interactive
+
 When prompted, enter a password (and remember what it is), select n for superuser, and y for the next two questions.
 
 3. Now connect to Postgres using the shell and create a test database:
+
 > psql
 
 >  > create database test;
