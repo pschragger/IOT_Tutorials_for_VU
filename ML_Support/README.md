@@ -1,13 +1,13 @@
 # Machine Learning on Node Red Support #
 
-Whether installing on your laptop node-red or pi node-red
-Note that the node-red you are using is determining by the URL you are using.
+Need to pick a node-red to use: your laptop or pi.  I used my lap-top but if you do not or cannot use python3 on your laptop then you should use your pi as your platform.
 
-We are going to use the [node-red-contrib-machine-learning-v2](
-https://flows.nodered.org/node/node-red-contrib-machine-learning-v2) package.
-So in node-red go to "Manage Palette" and click on the Install Tab.
-Search in the install tab for node-red-contrib-machine-learning-v2
+Note that the node-red you are using is determined by the URL you are using to access it.
 
+For a quick implementation of ML we are going to use the [node-red-contrib-machine-learning-v2](https://flows.nodered.org/node/node-red-contrib-machine-learning-v2) package.
+So in node-red go to "Manage Palette" function and click on the Install button next to the module name.
+
+This should now show that it is installed on your node-red instance.
 
 Note the red-node ml nodes require that you have:
 
@@ -17,7 +17,7 @@ Note the red-node ml nodes require that you have:
 * SciKit-Learn
 * Tensorflow (optional: can be skipped)
 
-To be sure you have a valid installation check the versions and installations
+To be sure you have a valid installation check the versions and installations using the following instructions
 
 ## Check for python ##
 
@@ -26,10 +26,11 @@ In a command window or ssh session
 1. To see if you have python3 installed run
 
 command line:  python --version
+
 result: Python 3.7.6
 
-2. If you a good python version then skip to "Check python modules" section .
-otherwise you have to load it in it will depend on your system.
+2. If you a good python version then skip to "Check python modules" section;
+otherwise you have to load it python and that  will depend on your system.
 Follow the instructions for your OS. Be sure to find a version that will work on your version of OS.
 
    * windows  - https://www.python.org/downloads/windows/
@@ -43,48 +44,58 @@ Follow the instructions for your OS. Be sure to find a version that will work on
 1. Once you are sure you have reasonable version of python installed. You should test to see if each package is installed.
 
 command line: python
+
 python >>> import numpy
+
 python >>> import pandas
+
 python >>> import sklearn
+
 python >>> import tensorflow
 
 These should not fail if the packages are installed on your machine
 If successful you are done  and can continue the node red test
    else:
 2. if they fail then  run
+
 > pip install --upgrade pip
+
 > pip install numpy
+
 > pip install pandas
+
 > pip sklearn
+
 > pip tensor flow
-  if successful go back to step 1 in the "Check python modules" section
+
+If successful go back to step 1 in the "Check python modules" section.
 
 3. Test to see if pip is installed using :
 
 > command line:  pip install --upgrade pip
 
 If you do not have pip at all then 
-use: https://pip.pypa.io/en/stable/installation/  as the instruction to load pip into your computer
-
-get-pip.py program is the simplest
-
-once pip is installed go back to the install step 2 in this "Check python modules" section.
+use: https://pip.pypa.io/en/stable/installation/  as the instruction to load pip into your computer. The get-pip.py program is the simplest to use.
+Once pip is installed go back to the install step 2 in this "Check python modules" section.
 
 ## Setup Data ##
 
-Once the environment is setup you will need to get the training data loaded locally
-cd to  a local directory that has a path without any spaces in the names and create
+Once the python environment is setup you will need to get the training data loaded locally.
 
-Command line: mkdir test
-Command line: cd test
-Command line: mkdir models
+1. cd to  a local directory that has a path without any spaces in the names and create
 
-copy the data and test files into the test directory
+>Command line: mkdir test
 
-[iris.data](./iris.data)
-[test1.json](./test1.json)
-[test2.json](./test2.json)
-[multitest.json](./multitest.json)
+>Command line: cd test
+
+>Command line: mkdir models
+
+2. Copy the data and test files into the test directory
+
+*[iris.data](./iris.data) - training data with data from https://archive.ics.uci.edu/ml/datasets/iris
+*[test1.json](./test1.json) - test1 
+*[test2.json](./test2.json) - test2
+*[multitest.json](./multitest.json) - multiple datasets in a single json message
 
 ## Edit the flows for ML ##
 
@@ -123,4 +134,14 @@ mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test1.jso
 mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test2.json
 
 mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/multitest..json
+
+## Results ##
+
+We  seen how to setup the machine learning module in nodered.
+From this we can see that the "training dataset" for a descision tree requires
+rows containing important data and the expected results ( the classifcation made by an expert).
+For the live test only the important data was sent and the decision tree model
+decided on the result.
+
+
 
