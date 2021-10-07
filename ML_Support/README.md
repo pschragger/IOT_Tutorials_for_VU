@@ -65,9 +65,9 @@ If successful you are done  and can continue the node red test
 
 > pip install pandas
 
-> pip sklearn
+> pip  install sklearn
 
-> pip tensor flow
+> pip  install tensorflow
 
 If successful go back to step 1 in the "Check python modules" section.
 
