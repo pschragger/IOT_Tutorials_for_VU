@@ -103,7 +103,7 @@ Once the python environment is setup you will need to get the training data load
 
 ## Edit the flows for ML ##
 
-I have put a the examples flows export in [nodered_ml_flows.json](http:./nodered_ml_flows.json)
+I have put the example flows export in [nodered_ml_flows.json](http:./nodered_ml_flows.json)
 
 1. Import that file or cut and paste the content in the nodered import page.
 2. Configure the "create dataset" node by updating:
