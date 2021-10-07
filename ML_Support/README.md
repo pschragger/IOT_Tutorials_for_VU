@@ -56,6 +56,7 @@ python >>> import tensorflow
 These should not fail if the packages are installed on your machine
 If successful you are done  and can continue the node red test
    else:
+
 2. if they fail then  run
 
 > pip install --upgrade pip
@@ -70,7 +71,7 @@ If successful you are done  and can continue the node red test
 
 If successful go back to step 1 in the "Check python modules" section.
 
-3. Test to see if pip is installed using :
+3. Otherwise first Test to see if pip is installed using :
 
 > command line:  pip install --upgrade pip
 
@@ -93,8 +94,11 @@ Once the python environment is setup you will need to get the training data load
 2. Copy the data and test files into the test directory
 
 *[iris.data](./iris.data) - training data with data from https://archive.ics.uci.edu/ml/datasets/iris
+
 *[test1.json](./test1.json) - test1 
+
 *[test2.json](./test2.json) - test2
+
 *[multitest.json](./multitest.json) - multiple datasets in a single json message
 
 ## Edit the flows for ML ##
@@ -122,24 +126,27 @@ and mqtt output node "predictions", usually that means you create localhost conf
 3. Start a mosquitto subscript of the "predictions" topic
 ou installed the test data 
 
-In a command window run: mosquitto_sub -h localhost -t predictions
+In a command window run:
+
+> mosquitto_sub -h localhost -t predictions
 
 4. Publish the test jsons to the classification topic in a different command windw
 
 You will need to change the directory path to wherever you installed the data.
 For example I ran mosquitto_pub using:
 
-mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test1.json
+>mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test1.json
 
-mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test2.json
+>mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/test2.json
 
-mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/multitest..json
+>mosquitto_pub -h localhost -t classification -f /Users/pschragger/test/multitest..json
 
 ## Results ##
 
 We  seen how to setup the machine learning module in nodered.
 From this we can see that the "training dataset" for a descision tree requires
-rows containing important data and the expected results ( the classifcation made by an expert).
+rows containing important data and the expected results ( the classifcation made by an experte
+).
 For the live test only the important data was sent and the decision tree model
 decided on the result.
 
