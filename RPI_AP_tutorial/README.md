@@ -129,6 +129,8 @@ curl https://api.openwethermap.org/data/2.5/weather?q=Radnor,US-PA'&'appid={YOUR
 
 If your sd card show as being too large or too small then you will need to clear the sd card using commandline toole:
 
+https://www.howtogeek.com/170794/ask-htg-how-can-i-reclaim-the-full-capacity-of-an-sd-card/
+
 For a MAC follow: 
 https://www.groovypost.com/howto/format-an-sd-card-on-mac/
 
