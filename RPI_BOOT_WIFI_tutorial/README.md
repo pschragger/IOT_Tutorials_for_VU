@@ -24,7 +24,7 @@ What you will need for this tutorial:
 1. Download and extract the DietPi disk image
 1. Go to https://dietpi.com/#download and select the RaspberyPI Images
 1. On the new page choose the download for your targeted pi
-    1. How do you know which version will work? - Check https://en.wikipedia.org/wiki/Raspberry_PI -  Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor which is an  ARMv8-A https://en.wikipedia.org/wiki/ARM_Cortex-A53.
+    1. How do you know which version will work? - Check https://en.wikipedia.org/wiki/Raspberry_Pi -  Raspberry Pi 3 Model B was released in February 2016 with a 1.2 GHz 64-bit quad core ARM Cortex-A53 processor which is an  ARMv8-A https://en.wikipedia.org/wiki/ARM_Cortex-A53.
     2. So I am choosing to use:
       ARMv8 64-bit image:Download - As of Sep 19, 2021 that link is  https://dietpi.com/downloads/images/DietPi_RPi-ARMv8-Bullseye.7z
 1. Extract the DietPi_RPi-ARMv8-Bullseye.7z -
