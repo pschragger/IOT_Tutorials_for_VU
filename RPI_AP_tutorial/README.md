@@ -124,3 +124,14 @@ reboot the pi on the command line using reboot command.
  Try your api call ( note the & is escaped using single quotes for bash command line on the dietpi
 curl https://api.openwethermap.org/data/2.5/weather?q=Radnor,US-PA'&'appid={YOURAPIKEY}
  If that works now try the wifi on your ardiuno with the weathermap software.
+
+### 8. If you have to start the installation you will need to cleanup old partions on the SD card
+
+If your sd card show as being too large or too small then you will need to clear the sd card using commandline toole:
+
+For a MAC follow: 
+https://www.groovypost.com/howto/format-an-sd-card-on-mac/
+
+For a Window Installation:
+
+Use chkdsk   https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/chkdsk
