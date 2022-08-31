@@ -30,8 +30,8 @@ AUTO_SETUP_NET_WIFI_ENABLED=1
 AUTO_SETUP_NET_ETH_FORCE_SPEED=0
 
 # Enter your Static Network details below, if applicable.
-AUTO_SETUP_NET_USESTATIC=1
-AUTO_SETUP_NET_STATIC_IP=192.168.10.{HOSTNUMBER}
+AUTO_SETUP_NET_USESTATIC=0
+AUTO_SETUP_NET_STATIC_IP=192.168.10.100
 AUTO_SETUP_NET_STATIC_MASK=255.255.255.0
 AUTO_SETUP_NET_STATIC_GATEWAY=192.168.10.1
 AUTO_SETUP_NET_STATIC_DNS=8.8.8.8
@@ -77,12 +77,12 @@ AUTO_SETUP_RAMLOG_MAXSIZE=50
 
 # Webserver Preference Selection: 0=Apache2 | -1=Nginx | -2=Lighttpd
 # - This will be ignored if you have manually selected any webserver stack.
-AUTO_SETUP_WEB_SERVER_INDEX=-2
+AUTO_SETUP_WEB_SERVER_INDEX=-1
 
 # DietPi-Autostart: 0=Console | 7=Console autologin | 1=Kodi | 2=Desktop autologin | 16=Desktop | 3=RetroPie | 4=OpenTyrian | 5=DietPi-Cloudshell | 6=Amiberry fast boot | 8=Amiberry standard boot | 9=DDX-Rebirth | 10=CAVA Spectrum | 11=Chromium kiosk | 14=Custom autostart service
 # - This will be effective on 2nd boot, after firstrun update and installs have been done.
 # - Related software titles must be installed either on firstrun installs or via AUTO_SETUP_AUTOMATED=1 + AUTO_SETUP_INSTALL_SOFTWARE_ID (see below).
-AUTO_SETUP_AUTOSTART_TARGET_INDEX=0
+AUTO_SETUP_AUTOSTART_TARGET_INDEX=1
 # Autologin user name
 # - This user must exist before firstrun installs, otherwise it will be reverted to root.
 # - Applies to all autostart options but: 0, 6, 14 and 16
@@ -113,7 +113,7 @@ AUTO_SETUP_GLOBAL_PASSWORD=dietpi
 #------------------------------------------------------------------------------------------------------
 # DietPi-Survey: 1=opt in | 0=opt out | -1=ask on first call
 # - https://dietpi.com/phpbb/viewtopic.php?p=34#p34
-SURVEY_OPTED_IN=-1
+SURVEY_OPTED_IN=0
 
 #------------------------------------------------------------------------------------------------------
 # D I E T - P I
@@ -166,7 +166,7 @@ CONFIG_CHECK_DIETPI_UPDATES=1
 CONFIG_AUTO_DIETPI_UPDATES=0
 
 # Network time sync: 0=disabled | 1=boot only | 2=boot + daily | 3=boot + hourly | 4=Daemon + Drift
-CONFIG_NTP_MODE=0
+CONFIG_NTP_MODE=4
 
 # WiFi country code: 2 character value (eg GB US DE JP): https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 CONFIG_WIFI_COUNTRY_CODE=US

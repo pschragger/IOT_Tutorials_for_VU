@@ -1,12 +1,19 @@
 # Setup your software to run an IOT Platform #
 
-# Setup #
+## Prequisites ##
 1. laptop on wifi
-2. dietpi on RPI on wifi ( See RPI_BOOT_WIFI_tutorial if not done)
+2. dietpi on RPI on wifi ( See [RPI_BOOT_WIFI_tutorial](../RPI_BOOT_WIFI_tutorial) if not done)
 
-# Procedure
+## Procedure ##
 
-1. SSH to the RPI using ssh root@[PI_IPADDRESS]
+1. SSH to the RPI using dietpi user
+```
+ssh dietpi@[PI_IPADDRESS]
+```
+   - Your login shoul result in showing a command line like:
+   ```
+   dietpi@DietPiPAS:~$
+  ```
 2. Install software on the PI using   dietpi-software command
    1. search for mqtt and select 123 MQTT message broker install by hitting the spacebar and selecting ok
    1. search for node-red and select "122  Node-RED: tool for wiring devices, APIs and online services" install by hitting the spacebar and selecting ok
