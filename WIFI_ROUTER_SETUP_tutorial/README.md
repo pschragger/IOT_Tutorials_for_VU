@@ -48,7 +48,7 @@ You should see a message that says: Switched to branch 'Router_tutorial'
 
  You are now ready to create you own tutorial.
 
-##  Start creating your own tutorial description how you will setup your router.
+##  III. Start creating your own tutorial description how you will setup your router.
 
 
 1. create the directory
@@ -79,7 +79,7 @@ You will need to remember and use these settings for your projects so they must 
 
 Note: we may have to take turns doing the setup depending on the overlap of wifi frequencies.
 
-##  Document your work
+## IV. Document your work
 
 Update the README.md in your Setup_Router_Tutorial directory with each step you accomplished.  Take a final image of the setup of your router via a broswer and put the image in a image directory under the Setup_Router_Tutorial
 
@@ -88,7 +88,7 @@ Router_setup_image.png
 
 ![router setup](./img/Router_setup_image.png)
 
-## Check in your changes to your tutorial using
+### a. Check in your changes to your tutorial using
 
 Find the files that you modified or added using
 
@@ -110,15 +110,15 @@ The changes are now committed to you local directory.  You must push the changes
 git push --set-upstream origin Router_tutorial
 '''
 
-## Check the changes and edit if necessary
+### b. Check the changes and edit if necessary
 
 If you make changes be or added files be sure everything is ready for committing by running " git status"
 Commit the changes locally with the 'git commit -m "COMMIT MESSAGE"' command
 Be sure to push your changes from the local repo to the origin in the github.com repo.
 
-## Create a pull request and then merge into your repo
+### c. Create a pull request and then merge into your repo
 Once finished all your changes then go  to your github repo in cloud and make a pull request to from your Branch back to main.
 Then merge the changes to the main branch
 
-## Create a release and tag for submission for homework.
+### d. Create a release and tag for submission for homework.
 
