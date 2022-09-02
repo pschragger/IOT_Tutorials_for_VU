@@ -40,10 +40,12 @@ cd /Users/pschragger/Documents/GitHub/VU_FALL22_IOT_CLASS
 
 4. Next we need to create a branch to develop on.  Refer to: 
 (https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+
 '''
 git branch Router_tutorial 
 git checkout Router_tutorial
 '''
+
 You should see a message that says: Switched to branch 'Router_tutorial'
 
  You are now ready to create you own tutorial.
