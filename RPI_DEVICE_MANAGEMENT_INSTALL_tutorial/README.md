@@ -91,13 +91,13 @@ ssh dietpi@(IPADDR_OF_PI)
    mvn -v
    ```
    results should look like
-   ```
+ 
    Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /home/dietpi/download/apache-maven-3.8.6
 Java version: 17.0.3, vendor: Debian, runtime: /usr/lib/jvm/java-17-openjdk-arm64
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "5.15.32-v8+", arch: "aarch64", family: "unix"
-   ```
+   
    9. create a JAVA_HOME environment variable pointing the install jdk
 
       - add the JAVA_HOME to the .bashrc (check your java directory matches the path provided below change as required )
