@@ -51,6 +51,7 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf
    ```
   - Connect your ESP32 to your pi using the usb to mini usb connector
   -   Build the hello_world project
+  
   ```
   . ~/esp/esp-idf/export.sh
   cd $IDF_PATH/examples/get-started/hello_world 
@@ -61,31 +62,42 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf
   check out all the options but do not change anything yet
   Save [S] then quit [Q] the config menu
   now build the hello-world program
+
   ```
   idf.py build
   ```
+  
   - find the usb that the esp is connected to
+  
   ```
   lsusb
   ```
+  
   my result shows:
+  
   ```
   Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
   Bus 001 Device 003: ID 1a86:7523 QinHeng Electronics CH340 serial converter
   Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
   Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-  ``1
+  ```
+  
   So I choose the CH340 serial converter
   
   -  find the port number /dev/ttyUSB[PORTNUMBER]
+  
   ```
   ls -l /dev/ttyUSB*
   ```
+  
   showed
+  
   ```
   crw-rw---- 1 root dialout 188, 0 Jul  6 16:08 /dev/ttyUSB0
   ```
+  
   So I am using port = 0 in the command  idf.py -p port flash
+  
   ```
   sudo chmod 666 /dev/ttyUSB0
   idf.py -p 0 flash
