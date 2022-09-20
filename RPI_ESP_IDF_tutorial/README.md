@@ -52,11 +52,15 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf
   - Connect your ESP32 to your pi using the usb to mini usb connector
   -   Build the hello_world project
   ```
+  . ~/esp/esp-idf/export.sh
+  cd $IDF_PATH/examples/get-started/hello_world 
   idf.py set-target esp32
   idf.py fullclean
   idf.py menuconfig
   ```
-  Save then quit the config menu
+  check out all the options but do not change anything yet
+  Save [S] then quit [Q] the config menu
+  now build the hello-world program
   ```
   idf.py build
   ```
