@@ -109,23 +109,31 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf
   idf.py -p /dev/ttyUSB0 monitor
   ```
   
+  ### RESULT
+  A message counts down from 10 seconds and then prints:
+Hello world!
+This is esp32 chip with 2 CPU core(s), WiFi/BT/BLE, silicon revision 1, 2MB external flash
+
+This indicates that your idf build code is complete and your esp32 was flashed with the hello world code.
 
 
+To stop the monitor service open another command window on your laptop and ssh to your pi as dietpi
 
-Install ESP-IDF and its dependencies on your computer. Please follow the instructions at https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html up to and including the point where you call . $HOME/esp/esp-idf/export.sh
-The project has been tested with ESP-IDF v4.4, but may work with other versions as well.
-3. Run idf.py set-target esp32 in the project directory
-4. Run idf.py menuconfig
-5. Navigate to Component config/anjay-esp32-client:
-select one of supported boards or manually configure the board in Board options menu
-configure Anjay in Client options menu
-configure WiFi in Connection configuration menu
-Run idf.py build to compile
-Run idf.py flash to flash
-NOTE: M5StickC-Plus does not support default baudrate, run idf.py -b 750000 flash to flash it
-The logs will be on the same /dev/ttyUSB<n> port that the above used for flashing, 115200 8N1
-You can use idf.py monitor to see logs on serial output from a connected device, or even more conveniently idf.py flash monitor as one command to see logs right after the device is flashed
+then run 
 
+```
+ps aux | grep monitor
+```
+it should return the process that is running on your pi
+mine returned
+```
+dietpi     19169  0.1  1.0  50616 39504 pts/0    S+   21:13   0:01 python /home/dietpi/esp/esp-idf/tools/idf.py -p /dev/ttyUSB0 monitor
+dietpi     19172  2.2  0.4 391560 16176 pts/0    Sl+  21:13   0:15 /home/dietpi/.espressif/python_env/idf4.4_py3.9_env/bin/python /home/dietpi/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/dietpi/esp/esp-idf/examples/get-started/hello_world/build/hello_world.elf -m '/home/dietpi/.espressif/python_env/idf4.4_py3.9_env/bin/python' '/home/dietpi/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+dietpi     34593  0.0  0.0   7396   624 pts/1    S+   21:24   0:00 grep monitor
+```
+In this case the process id (pid) is 19172, so I will run :  "kill  19172" to stop the process in the other command window.
+
+###  now to build a LWM2M Device using idf and the ANJAY Libraries
 
 ## Install C compiler ##
 
