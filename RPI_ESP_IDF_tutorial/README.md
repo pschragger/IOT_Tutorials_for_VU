@@ -1,9 +1,11 @@
-# Developing ESP32 as lwm2m client #
+# Install software to build ESP32 code #
 
-Most of this tutorial is based on [Anjay Lwm2m client instructions](https://github.com/AVSystem/Anjay-esp32-client)
+Most of this tutorial is based on [Anjay Lwm2m client instructions](https://github.com/AVSystem/Anjay-esp32-client).  The actual building of the LWM2M clients will be done in [RPI_BUILD_LWMWM_DEVICE](../RPI_BUILD_LWM2M_DEVICE) tutorial
 
 Documentation about the software for esp32 development can be found at:
-https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-tools.html#xtensa-esp32-elf
+[docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-tools.html#xtensa-esp32-elf)
+and
+[Intro to esp-idf](https://www.espressif.com/en/products/sdks/esp-idf)
 
 ## Prerequisites ##
 
@@ -133,126 +135,63 @@ dietpi     34593  0.0  0.0   7396   624 pts/1    S+   21:24   0:00 grep monitor
 ```
 In this case the process id (pid) is 19172, so I will run :  "kill  19172" to stop the process in the other command window.
 
-###  now to build a LWM2M Device using idf and the ANJAY Libraries
 
-## Install C compiler ##
+## Blink project ##
 
-1. Use dietpi-software tool on the PI to install gcc on the pi
-
-## build install utils and libraries to build anjay
-
-``` 
-sudo apt-get install git build-essential cmake libmbedtls-dev zlib1g-dev
-```
-## Build and install the avs_commons system ##
-
-1. clone the avs_commons repo
-```
-cd ~/projects
-git clone https://github.com/AVSystem/avs_commons
-```
-2. Build and install the avs_commons library
-```
-cd ~/projects/avs_commons
-cmake . && make && sudo make install
-```
-
-## Build and install the ANJAY Library ##
-
-
-
-1. retrieve the anjay code
-```
-cd ~/projects
-git clone https://github.com/AVSystem/Anjay
-```
-2. build the anjay code
-```
-cd ~/projects/Anjay
-git submodule update --init
-cmake . -DDTLS_BACKEND="mbedtls"
-make -j
-```
-3. try the anjay demo
-
--- view the leshan test server at https://leshan.eclipseprojects.io/#/clients
--- run the demo and see your machine listed in the leshsn server
-```
-./output/bin/demo --endpoint-name $(hostname) --server-uri coap://leshan.eclipseprojects.io:5683
-```
-
-
-### Installing Anjay library objects
-https://avsystem.github.io/Anjay-doc/Compiling_client_applications.html
-```
-cd ~/projects/Anjay
-cmake -DCMAKE_INSTALL_PREFIX=/home/dietpi/projects/Anjay-esp32-client . && make &&  make install
-```
-
-## Build the ANJAY client ##
-
-1. move to the anjay-esp32-client directory that was clone earlier
-```
-cd ~/projects/Anjay-esp32-client
-```
-
-2. Setup the local enironment for using the esp tools
-```
-cd ~/projects/Anjay-esp32-client
-. $HOME/esp/esp-idf/export.sh
-idf.py set-target esp32 
-```
-3. setup the device requirements
-     ```
-     cd ~/projects/Anjay-esp32-client
-     idf.py menuconfig
-     ```
-     - navigate to "Component->" and select config/anjay-esp32-client:
-
-     Setup your config to be:
-     (anjay-esp32-client) Endpoint name
-     (coap://{LESHAN_SERVER_IP}:5683) Server URI
-     Choose socket (UDP)  --->
-     Choose security mode (Non-secure connection)  --->
-
-
-     - navigate to "Board - > "
-
-     -  navigate to "Client options ->"
-          - Change Server URI from coaps://try-anjay.avsystem.com:5684 to
-	    coaps://YOUR_LESHAN_SERVER_IP_ADDR:
-	    I used coaps://192.168.8.224:5684
-	    Your IP my be different
-     -  navigate to "WiFi ->"
-4. Build the code for the device using
-     ```
-     cd ~/projects/Anjay-esp32-client
-     idf.py build
-     ```
-
-5. find the port and flash the device
-
-   - find port number by using
+1. copy the blink code to a new directory 
    ```
-   ls -l /dev/ttyUSB*
+   . ~/esp/esp-idf/export.sh
+   cd ~/esp
+   cp   -r $IDF_PATH/examples/get-started/blink .
    ```
-   it returns something like
-   crw-rw---- 1 root dialout 188, 0 Jul  8 06:17 /dev/ttyUSB0
-   so the port number is 0
+2. Connect your ESP32 to your pi using the usb to mini usb connector
+  -   Build the blink project
+  
+  ```
+  . ~/esp/esp-idf/export.sh
+  cd $IDF_PATH/examples/get-started/blink 
+  idf.py set-target esp32
+  idf.py fullclean
+  idf.py menuconfig
+  ```
+  check out all the options but do not change anything yet
+  Save [S] then quit [Q] the config menu
+  now build the blink program
+  
+3   Build the blink code using
+    ```
+    cd $IDF_PATH/examples/get-started/blink 
+    idf.py build
+    ```
+    
+4. flash the esp32 as you did with the hello_world project
 
-   - change the port number in this line to load the code
-    idf.py -p  port_number flash
-    with port nubmer = 0 I used:
-     ```
-     cd ~/projects/Anjay-esp32-client
-     sudo chmod 666 /dev/ttyUSB0
-     idf.py -p 0 flash
-     ```
-     You should see flashing
+5. check the monitory 
+
+6. change the blink period by looking at the code and changing the sleep times.
+    
+  
+  a. Look at the code
+  ```
+    cd ~/esp/esp-idf/examples/get-started/blink/main
+    nano blink_example_main.c
+   ```
+   what we find is a constant called    CONFIG_BLINK_PERIOD
+   
+  b. now we will use the menuconfig to change the settings
+   ```
+   cd ~/esp/esp-idf/examples/get-started/blink
+   idf.py menuconfig
+   ```
+    i. navigate to the "Example Configuration" and hit enter
+    ii. there are two settings Blink GPIO number and Blink Perion in ms
+    iii. change the blink period in ms to 5 seconds ( 5000 ) 
+    iv. save the results to the sdkconfig (S then Q )
+7 remember to rebuild and reflash 
 
 
    
-
+    
 
 
    
