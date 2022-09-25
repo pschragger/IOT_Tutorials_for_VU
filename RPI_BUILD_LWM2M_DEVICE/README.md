@@ -105,13 +105,16 @@ idf.py set-target esp32
      - navigate to "Board - > "
 
      -  navigate to "Client options ->"
-          - Change Server URI from coaps://try-anjay.avsystem.com:5684 to
-	    coaps://YOUR_LESHAN_SERVER_IP_ADDR:
+          - Change Server URI from coaps://try-anjay.avsystem.com:5684 to  coaps://YOUR_LESHAN_SERVER_IP_ADDR:5684
 	    I used coaps://192.168.8.224:5684
 	    Your IP my be different
+	    
      -  navigate to "WiFi ->"
+         To enter your IOT ROUTER WIFI SSID and key to allow the esp32 acccess to your router and PI.
+	 
 4. Build the code for the device using
-     ```
+    
+    ```
      cd ~/projects/Anjay-esp32-client
      idf.py build
      ```
@@ -135,3 +138,7 @@ idf.py set-target esp32
      idf.py -p 0 flash
      ```
      You should see flashing
+
+  6. check your leshan server for the registration of your esp32.
+
+
