@@ -1,7 +1,10 @@
 # Building an LWM2M clients on RPI for ESP32
 
 
-###  now to build a LWM2M Device using idf and the ANJAY Libraries
+What we are doing in this tutorial is building an LWM2M Device using idf and the ANJAY Libraries
+
+To perform this tutorial is is expected that your will start by logining onto your PI as dietpi.
+
 
 ## Install C compiler ##
 
