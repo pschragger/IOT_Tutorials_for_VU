@@ -9,18 +9,28 @@ To perform this tutorial is is expected that your will start by logining onto yo
 ## Install C compiler ##
 
 1.  Test to see if the c compiler is already installed  using 
+
 ```
 gcc -v
 ```
 
-2. If installed then go to the next step if not then use 'sudo dietpi-software'  on the PI to install gcc 
+2. If installed then go to the next step if not then use 
 
-##Install utils and libraries to build anjay ##
+```
+sudo dietpi-software`
+```
+on the PI to install gcc.
+
+## Install utils and libraries to build anjay ###
+
+You can peform this install in any directory.  YOu are using the linux apt-get command a root using sudo.
 
 ``` 
 sudo apt-get install git build-essential cmake libmbedtls-dev zlib1g-dev
 ```
+
 ## Build and install the avs_commons system ##
+
 
 1. clone the avs_commons repo
 ```
@@ -33,10 +43,9 @@ cd ~/projects/avs_commons
 cmake . && make && sudo make install
 ```
 
+You have now built and installed the avs_commons library into share directories
 
 ## Build and install the ANJAY Library ##
-
-
 
 1. retrieve the anjay code
 ```
