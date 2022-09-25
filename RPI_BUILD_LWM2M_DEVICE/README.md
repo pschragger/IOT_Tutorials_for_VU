@@ -8,11 +8,11 @@
 1.  Test to see if the c compiler is already installed  using 
 ```
 gcc -v
-``
+```
 
 2. If installed then go to the next step if not then use 'sudo dietpi-software'  on the PI to install gcc 
 
-## build install utils and libraries to build anjay
+## build install utils and libraries to build anjay ##
 
 ``` 
 sudo apt-get install git build-essential cmake libmbedtls-dev zlib1g-dev
