@@ -7,6 +7,9 @@ To perform this tutorial it is expected that your will start by logining onto yo
 
 It is assumed that your already installed the esp-idf environment as describe in [RPI_ESP_IDF_tutorial](../RPI_ESP_IDF_tutorial).
 
+
+A helpful website to give your details of the ANJAY libraries is available at the [Anhay-doc site](https://avsystem.github.io/Anjay-doc/Introduction.html)
+
 ## Install C compiler ##
 
 1.  Test to see if the c compiler is already installed  using 
