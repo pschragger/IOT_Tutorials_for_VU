@@ -7,6 +7,9 @@ Documentation about the software for esp32 development can be found at:
 and
 [Intro to esp-idf](https://www.espressif.com/en/products/sdks/esp-idf)
 
+
+Most of this tutorial is based on [Anjay Lwm2m client instructions](https://github.com/AVSystem/Anjay-esp32-client).
+
 ## Prerequisites ##
 
 1. laptop to work a console
