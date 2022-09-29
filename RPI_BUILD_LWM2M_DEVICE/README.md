@@ -5,7 +5,7 @@ What we are doing in this tutorial is building an LWM2M Device using idf and the
 
 To perform this tutorial it is expected that your will start by logining onto your PI as dietpi.
 
-It is assumed that your already installed the esp-idf environment as describe in [RPI_ESP_IDF_tutorial](./RPI_ESP_IDF_tutorial).
+It is assumed that your already installed the esp-idf environment as describe in [RPI_ESP_IDF_tutorial](../RPI_ESP_IDF_tutorial).
 
 ## Install C compiler ##
 
