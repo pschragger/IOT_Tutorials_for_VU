@@ -79,6 +79,13 @@ cd ~/projects/Anjay
 cmake -DCMAKE_INSTALL_PREFIX=/home/dietpi/projects/Anjay-esp32-client . && make &&  make install
 ```
 
+If the build does not work then delete the Anjay-esp32-client directory and clone a prebuilt version using:
+
+```
+cd projects
+git clone --recurse-submodules --remote-submodules https://github.com/pschragger/Anjay-esp32-client
+```
+
 ## Build the ANJAY client ##
 
 1. move to the anjay-esp32-client directory that was clone earlier
